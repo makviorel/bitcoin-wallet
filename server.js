@@ -13,11 +13,20 @@ var routes = express.Router();
 routes.get('/getPeers', function(req, res) {
    
     Peers.get(function(data) {
+
+        if(data.length > 0) {
+            Peers.connect(data[0], function() {
+                //
+            });
+        }
+
         res.status(200).send({ 
             data: data
         });
     })
 });
+
+
 
 app.use('/api', routes);
 
