@@ -27,7 +27,6 @@ routes.get('/getPeers', function(req, res) {
 routes.get('/createWallet', function(req, res) {
    
     iBitcoin.generateWallet(function(data) {
-        
         res.status(200).send({
             data: data
         });
